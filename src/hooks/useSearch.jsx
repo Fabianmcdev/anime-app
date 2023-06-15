@@ -22,7 +22,7 @@ function useSearch () {
         }
     };
     
-    const counter = () => {
+    const nextPage = () => {
         setPage(page + 1);
         fetchAnime();
       };
@@ -50,18 +50,11 @@ function useSearch () {
         fetchAnime()
         setSearch('')
     }
-
     useEffect(() => {
-    }, [anime, page])
+        //fetchAnime()
+    }, [page, search, anime, options, getSearch, fetchAnime])
 
-    return {
-        anime,
-        search,
-        setSearch,
-        getSearch, 
-        updateSearch,
-        loading
-}
+    return {search, getSearch, updateSearch, loading, nextPage}
 }
 export default useSearch;
 
